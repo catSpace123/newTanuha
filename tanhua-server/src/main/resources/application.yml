@@ -1,0 +1,77 @@
+server:
+  port: 10880
+
+dubbo:
+  application:
+    name: tanhua-server
+  registry:
+    address: zookeeper://192.168.40.135:2181
+  consumer:
+    check: false
+# log
+logging:
+  level:
+    root: info
+    com:
+      tanhua: debug
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %msg - %logger{15}%n\'
+
+tanhua:
+  secret: 76bd425b6f29f7fcc2e0bfc286043df1  #用来生成token时候的前缀，（要保密）
+  redisValidateCodeKeyPrefix: VALIDATECODE_  #用来存入验证码到redis的前缀
+  tokenKey: TOKEN_
+  sms:            #短信验证的模板
+    validateCodeTemplateCode: SMS_204761533
+    signName: 传智播客
+    parameterName: code
+    accessKeyId: LTAI5tC8gbfqBCb2V35uWUFH
+    accessKeySecret: l4l7dnHfsn3hAE2VgfeXetuaB33ptc
+  oss: #oss 图片云存储
+    endpoint: http://oss-cn-shenzhen.aliyuncs.com
+    bucketName: tanhua111danshui    #oss仓库地址
+    url: https://tanhua111danshui.oss-cn-shenzhen.aliyuncs.com  #访问仓库的url
+    accessKeyId: LTAI5tC8gbfqBCb2V35uWUFH
+    accessKeySecret: l4l7dnHfsn3hAE2VgfeXetuaB33ptc
+  huanxin: #环信即时通信配置
+    url: http://a1.easemob.com/
+    orgName: 1114210610046267
+    appName: tanhua111
+    clientId: YXA6_nJW_WgdSC-A4eq5VKwPnA
+    clientSecret: YXA6hjszBlANfMfiys8BnGJh2pcua9w
+    #人脸识别组件
+  face:
+    appId: 24290284
+    apiKey: KlhiFCDMwlVDSyIPUViEmf9g
+    secretKey: Nq1EK1wTGmjAE9SZHcxfkEm5pIGbjfRG
+spring:   #redis 相关配置  远程服务器的ip
+  redis:
+    host: 192.168.40.135
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+#分布式文件存储系统的配置
+
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  #缩略图生成参数
+  thumb-image:
+    width: 150
+    height: 150
+  #TrackerList参数,支持多个
+  tracker-list: 192.168.40.135:22122
+  web-server-url: http://192.168.40.135:8888/
+
+#RocketMq 消息队列 配置
+rocketmq:
+  name-server: 192.168.40.135:9876 #注册中心的地址
+  producer:
+    group: tanhuaServer
+
+
+
+
+

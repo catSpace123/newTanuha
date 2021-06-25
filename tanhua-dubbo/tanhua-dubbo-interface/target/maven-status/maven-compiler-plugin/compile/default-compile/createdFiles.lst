@@ -1,0 +1,15 @@
+com\tanhua\dubbo\api\SettingsApi.class
+com\tanhua\dubbo\api\mong\TodayBestApi.class
+com\tanhua\dubbo\api\UserInfoApi.class
+com\tanhua\dubbo\api\mong\CommentApi.class
+com\tanhua\dubbo\api\BlackListApi.class
+com\tanhua\dubbo\api\MessagesApi.class
+com\tanhua\dubbo\api\UserQuestionApi.class
+com\tanhua\dubbo\api\mong\UserLikeApi.class
+com\tanhua\dubbo\api\mong\VoiceApi.class
+com\tanhua\dubbo\api\mong\MovementsPublishApi.class
+com\tanhua\dubbo\api\mong\SmallVideosApi.class
+com\tanhua\dubbo\api\mong\BaiduApi.class
+com\tanhua\dubbo\api\UserApi.class
+com\tanhua\dubbo\api\mong\VisitorsApi.class
+com\tanhua\dubbo\api\mong\FriendApi.class

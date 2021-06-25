@@ -1,0 +1,64 @@
+server:
+  port: 18083
+  #配置数据库连接
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tanhua_manager
+    username: root
+    password: root
+  redis:   #redis
+    port: 6379
+    host: 192.168.40.135
+dubbo:
+  application:
+    name: tanhua-manger
+  registry:
+    address: zookeeper://192.168.40.135:2181
+  consumer:
+    check: false     #消费者启动不检查服务提供者起不启动
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_    #配置全局实体与数据库的映射
+      id-type: auto         #主键自增
+tanhua:
+  secret: 76bd425b6f29f7fcc2e0bfc286043df1  #用来生成token时候的前缀，（要保密）
+
+  sms:            #短信验证的模板
+    validateCodeTemplateCode: SMS_204761533
+    signName: 传智播客
+    parameterName: code
+    accessKeyId: LTAI5tC8gbfqBCb2V35uWUFH
+    accessKeySecret: l4l7dnHfsn3hAE2VgfeXetuaB33ptc
+  oss: #oss 图片云存储
+    endpoint: http://oss-cn-shenzhen.aliyuncs.com
+    bucketName: tanhua111danshui    #oss仓库地址
+    url: https://tanhua111danshui.oss-cn-shenzhen.aliyuncs.com  #访问仓库的url
+    accessKeyId: LTAI5tC8gbfqBCb2V35uWUFH
+    accessKeySecret: l4l7dnHfsn3hAE2VgfeXetuaB33ptc
+  huanxin: #环信即时通信配置
+    url: http://a1.easemob.com/    #国内一区
+    orgName: 1114210610046267
+    appName: tanhua111
+    clientId: YXA6_nJW_WgdSC-A4eq5VKwPnA
+    clientSecret: YXA6hjszBlANfMfiys8BnGJh2pcua9w
+    #百度人脸识别组件
+  face:
+    appId: 24290284
+    apiKey: KlhiFCDMwlVDSyIPUViEmf9g
+    secretKey: Nq1EK1wTGmjAE9SZHcxfkEm5pIGbjfRG
+
+  huawei:
+    username: user01
+    password: spacecat123
+    project: cn-east-3
+    domain: spacecat123
+    # 图片检测内容 politics：是否涉及政治人物的检测，terrorism：是否包含涉政暴恐元素的检测，porn：是否包含涉黄内容元素的检测，ad：是否包含广告的检测（公测特性），all：包含politics、terrorism和porn三种场景的检测
+    categoriesImage: politics,terrorism,porn
+    # 文字检测内容 politics：涉政，porn：涉黄，ad：广告，abuse：辱骂，contraband：违禁品，flood：灌水
+    categoriesText: politics,porn,ad,abuse,contraband,flood
+    textApiUrl: https://moderation.cn-east-3.myhuaweicloud.com/v1.0/moderation/text
+    imageApiUrl: https://moderation.cn-east-3.myhuaweicloud.com/v1.0/moderation/image/batch
+rocketmq:
+  name-server: 192.168.40.135:9876 #注册中心的地址
